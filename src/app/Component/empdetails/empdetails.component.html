@@ -1,0 +1,46 @@
+<h2>Click on employee for more info</h2> 
+<div>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Sr. No.</th>
+                <th scope="col">Code</th>
+                <th scope="col">Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of empList; let i = index" (click)='getempByID(data.payload.doc.id)'>
+                <td>{{i+1}}</td>
+                <td>{{data.payload.doc.data().empCode}}</td>
+                <td>{{data.payload.doc.data().empName }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<hr>
+<h2>Details Of Selected Employees</h2> 
+ <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th scope="col">Code</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Contact No.</th>
+                <th scope="col">Designation</th>
+                <th scope="col">Salary</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{code}}</td>
+                <td>{{name }}</td>
+                <td>{{email}}</td>
+                <td>{{mobile}}</td>
+                <td>{{designation}}</td>
+                <td>{{salary}}</td>
+                <td>{{status}}</td>
+            </tr>
+        </tbody>
+    </table>

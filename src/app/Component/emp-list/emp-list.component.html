@@ -1,0 +1,40 @@
+<h2>List Of Employees</h2>  
+
+<p *ngIf="!isLoaded; else list">Loading <i class="fa fa-spinner" aria-hidden="true"></i></p>
+
+<ng-template #list>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+            <th scope="col">Sr. No.</th>
+            <th scope="col">Code</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Contact No.</th>
+            <th scope="col">Designation</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Status</th>
+            <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let data of empList; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{data.payload.doc.data().empCode}}</td>
+            <td>{{data.payload.doc.data().empName }}</td>
+            <td>{{data.payload.doc.data().empEmail}}</td>
+            <td>{{data.payload.doc.data().empMobile}}</td>
+            <td>{{data.payload.doc.data().empDes}}</td>
+            <td>{{data.payload.doc.data().empSalary}}</td>
+            <td>{{data.payload.doc.data().empStatus}}</td>
+            <td>
+                <!-- <input type="submit" (click)='edit(i)' value="Edit" class=" btn btn-outline-primary">&nbsp;
+                <input type="submit" (click)='delete(i)'  class="btn btn-outline-danger"> -->
+                <button type="button"  class=" btn btn-outline-primary" routerLink='/edit/{{data.payload.doc.id}}'><i class="fa fa-edit" aria-hidden="true"></i></button> &nbsp;
+                <!-- <button type="button"  class=" btn btn-outline-primary" (click)='edit(data.payload.doc.id)'><i class="fa fa-edit" aria-hidden="true"></i></button> &nbsp; -->
+                <button type="button" class="btn btn-outline-danger" (click)='deleteEmp(data.payload.doc.id)'><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </td>
+            </tr>
+        </tbody>
+    </table>
+</ng-template>

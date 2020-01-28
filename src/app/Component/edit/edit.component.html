@@ -1,0 +1,39 @@
+<h2> Insert New Employee </h2>
+
+<form (ngSubmit)="update(updatedata)" #updatedata=ngForm>
+
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Code</label>
+      <input type="text" class="form-control" name="empcode"  ngModel aria-describedby="emailHelp" placeholder="Enter Employee Code" value="{{ code }}">
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Name</label>
+      <input type="text" class="form-control" name="empname"  ngModel placeholder="Enter Employee Name" value="{{name}}">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email</label>
+        <input type="email" class="form-control" name="empemail" ngModel placeholder="Enter Employee Email" value="{{email}}">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Mobile</label>
+        <input type="number" class="form-control" name="empmobile" ngModel placeholder="Enter Employee Mobile" value="{{mobile}}">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Designation</label>
+        <input type="text" class="form-control" name=empdes ngModel placeholder="Enter Employee Designation" value="{{designation}}">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlInput1">Salary</label>
+        <input type="text" class="form-control" name="empsalary" ngModel placeholder="Enter Employee Salary" value="{{ salary}}">
+    </div>
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Status</label>
+        <select class="form-control" name="empstatus" ngModel>
+            
+            <option value="true" selected="true"> Active </option>
+            <option value="false"> InActive </option>
+        </select>    
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Update</button>&nbsp;
+</form>
